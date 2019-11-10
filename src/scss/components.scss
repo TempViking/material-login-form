@@ -1,0 +1,254 @@
+@import './colors.scss';
+@import './mixin.scss';
+
+.login-card {
+    width: 24rem;
+    position: relative;
+    &_dark {
+        & > .login-card__content {
+            transform: translateY(-1rem) scale(0.95);
+        }
+        & > .login-card__darkside {
+            display: block;
+        }
+        & > .login-card__add {
+            top: 50%;
+            right: 50%;
+        }
+    }
+    &__content {
+        transition: transform 500ms;
+        width: 100%;
+        background-color: #FFF;
+        border-radius: 8px;
+        padding: 1.3rem 0;
+        position: relative;
+        z-index: 2;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: -1;
+            transform: translateY(-1rem) scale(0.95);
+        }
+    }
+    &__darkside {
+        z-index: 1;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 8px;
+        padding: 1.3rem 0;
+        &_turn-animate {
+            @keyframes turn-shadow {
+                from {
+                    box-shadow: 0 0 0 20rem $strawberry-color;
+                }
+                to {
+                    box-shadow: 0 0 0 0rem $strawberry-color;
+                }
+            }
+            &:before {
+                animation: turn-shadow 500ms forwards;
+                animation-delay: 300ms;
+                box-shadow: 0 0 0 20rem $strawberry-color;
+            }
+        }
+        &_animate {
+            @keyframes shadow {
+                from {
+                    box-shadow: 0 0 0 0rem $strawberry-color;
+                }
+                to {
+                    box-shadow: 0 0 0 20rem $strawberry-color;
+                }
+            }
+            &:before {
+                animation: shadow 500ms forwards;
+                animation-delay: 300ms;
+            }
+        }
+        &_open {
+            background-color: $strawberry-color;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            transition: box-shadow 1000ms;
+            box-shadow: 0 0 0 0rem $strawberry-color;
+        }
+    }
+    &__container {
+        @include container;
+    }
+    &__header {
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $strawberry-color;
+        font-size: 1.3rem;
+        padding: 0.5rem 2.6rem;
+        margin: 1.3rem 0 0 0;
+        position: relative;
+        &_dark {
+            color: #FFF !important;
+            &:before {
+                background-color: #FFF !important;
+            }
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 0.25rem;
+            background-color: $strawberry-color;
+        }
+    }
+    &__button {
+        text-transform: uppercase;
+        margin-top: 1.3rem;
+        background-color: $raspberry-color;
+        border: none;
+        border-radius: 50px;
+        padding: 1rem 3.9rem;
+        color: #FFF;
+        font-weight: 700;
+        outline: none;
+        position: relative;
+        box-shadow: 0px 3px 0px 0px rgba(233,233,233,1);
+        transition: all 300ms;
+        cursor: pointer;
+        &_dark {
+            width: 100%;
+            background-color: #FFF !important;
+            color: $strawberry-color !important;
+            box-shadow: 0px 3px 0px 0px rgba(100,100,100,0.5) !important;
+            &:hover {
+                background-color: darken(#FFF, 5%) !important;
+            }
+            &:active {
+                box-shadow: 0px 0px 0px 0px rgba(100,100,100,0.5) !important;
+            }
+        }
+        &:hover {
+            background-color: lighten($raspberry-color, 5%);
+        }
+        &:active {
+            box-shadow: 0px 0px 0px 0px rgba(233,233,233,1);
+        }
+    }
+    &__link {
+        display: block;
+        width: 100%;
+        font-size: 0.7rem;
+        padding: 1.15rem 0;
+        margin-top: 1.3rem;
+        text-decoration: none;
+        color: $grey-color;
+    }
+    &__control {
+        transition: opacity 500ms;
+        opacity: 0;
+    }
+    &__add {
+        z-index: 4;
+        transition: top 300ms, right 300ms, transform 300ms;
+        position: absolute;
+        margin-top: -2.6rem;
+        margin-right: -2.6rem;
+        top: 5.2rem;
+        right: 0;
+        width: 5.2rem;
+        height: 5.2rem;
+        background-color: $strawberry-color;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &_trans {
+            top: 3.9rem !important;
+            right: 2.6rem !important;
+            transform: rotate(45deg);
+            background: none !important;
+        }
+    }
+    &__input {
+        margin-top: 1.3rem;
+    }
+}
+
+.material-input {
+    position: relative;
+    &:before {
+        content: '';
+        height: 1px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: transform 500ms;
+        background-color: $strawberry-color;
+        transform-origin: center;
+        transform: scaleX(0);
+    }
+    &_focus {
+        & > .material-input__placeholder {
+            top: 0;
+            transform: scale(0.8);
+            color: $strawberry-color;
+        }
+        &:before {
+            transform: scaleX(1);
+        }
+    }
+    &__placeholder {
+        text-align: left;
+        font-size: 1rem;
+        position: relative;
+        top: 1.2rem;
+        left: 0;
+        transition: top 300ms, transform 300ms, color 300ms;
+        transform-origin: left;
+        pointer-events: none;
+    }
+    &__input {
+        width: 100%;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $grey-color;
+        padding: 0 0 1rem 0;
+        font-size: 1rem;
+        background: none;
+    }
+    &_dark {
+        &.material-input_focus {
+            & > .material-input__placeholder {
+                color: #FFF !important;
+            }
+        }
+        &:before {
+            background-color: #FFF !important;
+        }
+        & > .material-input__placeholder {
+            color: darken(#FFF, 15%);
+        }
+        & > .material-input__input {
+            border-bottom: 1px solid darken(#FFF, 15%) !important;
+            color: #FFF;
+        }
+    }
+}

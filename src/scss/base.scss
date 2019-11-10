@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import './normalize.css';
+@import './blocks.scss';
+@import './components.scss';
+
+html {
+    height: 100%;
+    @include for-phones {
+        font-size: 11px;
+    }
+}
+body {
+    background-image: url('../images/Street@4x.png'), linear-gradient(#500c42, #9c0b4e);
+    background-size: auto 100%, auto;
+    background-position: right center, center;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}

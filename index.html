@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Material login form</title>
+</head>
+<body>
+    <section class="login-page">
+        <svg class="login-page__moon">
+            <use xlink:href="#moon"></use>
+        </svg>
+        <div class="login-card">
+            <div class="login-card__content">
+                <h1 class="login-card__header">
+                    LOGIN
+                </h1>
+                <div class="login-card__container">
+                    <div class="material-input login-card__input">
+                        <div class="material-input__placeholder">Username</div>
+                        <input class="material-input__input">
+                    </div>
+                    <div class="material-input login-card__input">
+                        <div class="material-input__placeholder">Password</div>
+                        <input class="material-input__input" type="password">
+                    </div>
+                    <button type="submit" class="login-card__button" onclick="login(event)">Go</button>
+                    <a href="#" class="login-card__link">Forgot your password?</a>
+                </div>
+            </div>
+            <div class="login-card__darkside">
+                <div class="login-card__control">
+                    <h1 class="login-card__header login-card__header_dark">
+                        REGISTER
+                    </h1>
+                    <div class="login-card__container">
+                        <div class="material-input material-input_dark login-card__input">
+                            <div class="material-input__placeholder">Username</div>
+                            <input class="material-input__input">
+                        </div>
+                        <div class="material-input material-input_dark login-card__input">
+                            <div class="material-input__placeholder">Password</div>
+                            <input class="material-input__input" type="password">
+                        </div>
+                        <div class="material-input material-input_dark login-card__input">
+                            <div class="material-input__placeholder">Repeat Password</div>
+                            <input class="material-input__input" type="password">
+                        </div>
+                        <button class="login-card__button login-card__button_dark" onclick="register(event)">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div class="login-card__add" onclick="openForm(event)">
+                <svg width="1.3rem" height="1.3rem">
+                    <use xlink:href="#plus"></use>
+                </svg>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

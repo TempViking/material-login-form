@@ -1,0 +1,10 @@
+@mixin container {
+    padding: 0 2.6rem;
+    text-align: center;
+}
+
+@mixin for-phones {
+    @media (max-width: 500px) {
+        @content;
+    }
+}
